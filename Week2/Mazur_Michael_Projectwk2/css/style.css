@@ -1,0 +1,205 @@
+/*
+    Wk2 Landing Page Activity
+    Michael Mazur
+    09-10-2015
+
+    Style.CSS for main css for landing page and jquery effects
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* Main CSS */
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: Roboto, 'sans-serif';
+}
+.container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
+}
+
+/* Header CSS */
+#logo {
+    float: left;
+}
+#profile {
+    float: right;
+
+}
+.top-header {
+    overflow: auto;
+}
+
+.bottom-header {
+    clear: both;
+    float: left;
+    width: 100%;
+    background-color: #01acef;
+    overflow: auto;
+}
+.top-header ul li {
+    display: block;
+    float: left;
+    padding: 0 25px 0 25px;
+    margin-top: 30px;
+}
+.top-header ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+}
+.top-header ul li a:hover {
+    color: #01acef;
+
+}
+/* Main Menu CSS */
+/*style the main menu*/
+
+.menu {
+    margin:0;
+    padding:0;
+   }
+
+.menu li {
+    list-style:none;
+    float:left;
+    font:12px Arial, Helvetica, sans-serif #111;
+}
+.menu li a:link {
+    display: block;
+    text-decoration: none;
+    background-color: #01acef;
+    padding: 10px 15px;
+    margin: 0;
+    border-right: 1px solid #fff;
+    color: #111;
+}
+.menu li a:hover {
+    background-color:#09F;
+}
+
+/*style the sub menu*/
+.menu li ul {
+    position:absolute;
+    visibility:hidden;
+    border-top:1px solid #fff;
+    margin:0;
+    padding:0;
+}
+
+.menu li ul li {
+    display:inline;
+    float:none;
+}
+
+.menu li ul li a:link {
+    background-color:#01acef;
+    width:auto;
+}
+
+.menu li ul li a:hover {
+    background-color:#09F;
+}
+
+/* Modal CSS */
+#overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+#popup {
+    width: 500px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    z-index: 1000;
+    display: none;
+}
+#popup .header {
+    background: #01acef;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 26px;
+}
+#popup div {
+    padding: 25px;
+}
+input {
+    padding: 15px 0 15px 0px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+input:-moz-placeholder {
+    margin-left: 12px;
+}
+#popup .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Tooltip CSS */
+
+.tooltip {
+    display: none;
+    position: absolute;
+    border: 1px solid #000;
+    background: #111;
+    border-radius: 5px;
+    padding: 20px;
+    color: #fff;
+    font-size: 12px;
+    z-index: 2000;
+}
+/* Tabs CSS */
+
+#tabs {
+    color: #111;
+    width: 600px;
+    height: 150px;
+    padding: 20px;
+    font-size: 18px;
+    float: right;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-top: 13px;
+    border-radius: 5px;
+}
+#tabs-nav {
+    width: 250px;
+    height: 150px;
+    padding: 20px;
+    text-decoration: none;
+    list-style-type: none;
+    float: left;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#tabs-nav li {
+    display: block;
+    padding: 20px;
+}

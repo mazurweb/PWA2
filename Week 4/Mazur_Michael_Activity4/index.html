@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tampa Bay Lightning Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div id="wrapper">
+    <div class="container">
+        <div id="logo">
+            <img src="images/lighteningtrans.png" class="logo" width="250"/>
+            <h1 class="title">Tampa Bay Lightning Schedule</h1>
+        </div>
+        <div id="main" class="clearfix">
+            <section class="col-md-9 display-games">
+                <div id="games">
+                    <div class="game draggable">
+                        <h3>Lightning Vs. Canadiens</h3>
+                        <h5>October 22nd, 2015</h5>
+                        <h6>6:30 PM EST</h6>
+                    </div>
+                </div>
+                <div id="accordion">
+                    <h3>Pricing</h3>
+                    <div>
+                        <p>This is where pricing would be for the full app.</p>
+                    </div>
+                    <h3>Summary</h3>
+                    <div>
+                        <p>This is where a description of the game would go.</p>
+                    </div>
+                    <h3>Reviews</h3>
+                    <div>
+                        <p>This is where reviews of the two teams would go.</p>
+                    </div>
+                </div>
+            </section>
+            <aside class="col-md-3">
+                <div id="date">
+                    <h4>Pick the Game Day:</h4>
+                    <div id="datepicker"></div>
+                    <input name="date" type="text" hidden>
+                </div>
+                <div id="droppable" class="ui-widget-header">
+                    <p>Drop here to purchase tickets</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div id="dialog-confirm" title="Add Ticket to Cart?">
+    <p><span class="ui-icon ui-icon-alert" style="float: left;"></span>Do you want to add this ticket to your cart?</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

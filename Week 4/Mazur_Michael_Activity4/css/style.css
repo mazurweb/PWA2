@@ -1,0 +1,72 @@
+/* Main Stylesheet for Lightning Ticket Page */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+    background: url('../images/ui-bg_flat_50_1e1c1c_40x100.png');
+}
+#wrapper {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    background: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-bottom: 20px;
+}
+/* Logo CSS */
+#logo {
+    text-align: center;
+}
+h1.title {
+    margin-top: 5px;
+}
+
+/* Main */
+#main {
+    margin-top: 25px;
+    padding: 25px;
+}
+
+/* Main Section */
+#dialog-confirm {
+    visibility: hidden;
+}
+.game {
+    padding: 20px;
+    width: 50%;
+    background-color: #ccc;
+    border: 1px solid #003E7E;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+}
+#accordion {
+    margin-top: 25px;
+}
+/* Aside */
+.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+    width: 100%;
+}
+#date {
+    text-align: center;
+    margin-bottom: 25px;
+}
+input#datepicker {
+    width: 80%;
+}
+
+#droppable p {
+    margin-bottom: 0;
+    text-align: center;
+    padding: 25px;
+}
+aside.col-md-3 {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ccc;
+    border: 1px solid #003E7E;
+}

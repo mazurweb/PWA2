@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--Michael Mazur
+	09-18-2015
+    September
+-->
+<html>
+<head>
+<title>Weather API App</title>
+  
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="container">
+    <div class="current">
+        <header>
+            <h1 class="city"></h1>
+        </header>
+
+        <h2>Current Conditions</h2>
+    <!--  1. Display the icon for the current conditions (observation)
+      	  2. Display weather
+          3. Display temperature in Ferinheiths
+          4. Display feels like temperature
+          5. Display relative humidity
+          6. Display wind direction
+          7. Display wind miles per hour
+    -->
+        <img class="current_icon" />
+        <p class="weather"></p>
+        <p class="temp_f"></p>
+        <p class="feels-like"></p>
+        <p class="rel-humidity"></p>
+        <p class="wind"></p>
+  
+    </div>
+    <div class="hourlyWeather left">
+        <h2>Your Hourly 1-day forecast</h2>
+        <!--  1. Display the Hourly 1-day forecast
+              2. Display the condition for each hour
+              3. Display the temperature for each hour
+        -->
+        <ul class="hourly">
+
+        </ul>
+    </div>
+    <div class="forecast7day right">
+        <h2>Your 7-day forecast</h2>
+        <!--	1. Display the 7-day forecast
+      		    2. Display the icon
+      		    3. Display weather
+                4. Display highs
+                5. Display lows
+                6. Display conditions
+        -->
+        <ul class="seven-day">
+
+        </ul>
+    </div>
+  
+    </div><!--Closes Container-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+    <!--This is an example. Use your own API key and city location.  Copy and paste the url in your browser. It will display the needed information in a JSON file.  Use the keys to display the information on your page-->	
+	
+    //	$.ajax({                             
+    //		url : "http://api.wunderground.com/api/YourAPIKeyHere/forecast/geolookup/conditions/q/MD/Baltimore.json",
+    //		dataType : "json", 
+    //          success : function(parsed_json) { 
+    //              var location = parsed_json['location']['city']; 
+    //              var temp_f = parsed_json['current_observation']['temp_f'];
+    //                  $(".class").html("Current temperature in " + location + " is: " + temp_f+"ºF");
+    //          } 
+    //	}); 
+		    $.ajax({
+			    url : "http://api.wunderground.com/api/b7c047e6a249d6ee/geolookup/forecast10day/hourly/conditions/q/FL/Tampa.json",
+			    dataType : "json",
+				    success : function(data) {
+                        var currentObservation = data['current_observation'];
+                        var forecast7day = data['forecast']['simpleforecast']['forecastday'];
+                        var hourlyForecast = data['hourly_forecast'];
+
+					    //Begin Current Weather
+					    //City Information
+					    var location = currentObservation['display_location']['full'];
+
+					    //Current Conditions
+					    var current_icon = currentObservation['icon_url'];
+					    var weather = currentObservation['weather'];
+					    var temp_f = currentObservation['temp_f'];
+					    var feels_like = currentObservation['feelslike_string'];
+					    var rel_humidity = currentObservation['relative_humidity'];
+					    var wind_direction = currentObservation['wind_dir'];
+					    var wind_mph = currentObservation['wind_mph'];
+
+                        $('.city').append(location);
+                        $('.current_icon').attr("src", current_icon);
+                        $('.weather').append("Condition: " + weather);
+                        $('.temp_f').append("Current Temperature: " +temp_f + " F");
+                        $('.feels-like').append("Feels Like: " + feels_like);
+                        $('.rel-humidity').append("Humidity: " + rel_humidity);
+                        $('.wind').append("Winds: " +wind_mph + " mph " + wind_direction);
+                        //End current weather
+
+                        //Begin Hourly Forecast
+                        var forecast24hours = hourlyForecast.slice(hourlyForecast.length - 24);
+                        for (hours in forecast24hours) {
+                            var currentForecast = hourlyForecast[hours];
+                            var hourIcon = '<img src="' + currentForecast["icon_url"] + '">';
+                            var time = currentForecast['FCTTIME']['hour'] + ':' + currentForecast['FCTTIME']['min'];
+                            var hourCondition = currentForecast['condition'];
+                            var hourTemp = currentForecast['temp']['english'] + 'F';
+
+                            $(".hourly").append('<li class="hour">' + time + '<br />' + hourIcon + '<br />' + hourCondition + ' - ' + hourTemp + '</li>');
+                        }
+
+                        //Begin 7 Day Forecast
+                        var forecastdays = forecast7day.slice(forecast7day.length - 7);
+                        for (days in forecastdays){
+                            var currentDayForecast = forecast7day[days];
+                            var day = currentDayForecast['date']['weekday'];
+                            var dayIcon = '<img src="' + currentDayForecast['icon_url'] + '">';
+                            var dayConditions = currentDayForecast['conditions'];
+                            var dayHigh = 'High: ' + currentDayForecast['high']['fahrenheit'] + 'F';
+                            var dayLow = 'Low: ' + currentDayForecast['low']['fahrenheit'] + 'F';
+
+                            $('.seven-day').append('<li class="day">' + day + '<br />' + dayIcon + '<br />' + dayConditions + '<br />' + dayHigh + '<br />' + dayLow + '</li>');
+                        }
+				    }
+		    });
+        </script>
+</body>
+</html>

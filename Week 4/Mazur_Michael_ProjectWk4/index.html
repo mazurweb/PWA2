@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Daily To Do List</title>
+    <link href="jqueryui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="jqueryui/jquery-ui.theme.min.css" rel="stylesheet" type="text/css">
+    <link href="jqueryui/jquery-ui.structure.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+    <div class="header">
+        <img src="images/ToDo-Daily.png" />
+    </div>
+    <div class="container">
+        <div class="todo-section">
+            <h1>To Do List</h1>
+            <div id="task-list" class="ui-widget sortlist">
+
+                <ul class="tasks droptrue">
+
+                </ul>
+            </div>
+            <button id="add-item" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Add New Item</button>
+
+
+            <h1 style="margin-top: 20px; color: green">Completed Tasks</h1>
+            <div id="completed-list" class="ui-widget sortlist">
+
+                <ul class="complete droptrue">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Here is the modal form to input to do item-->
+<div id="add-todo-item" title="Add Task to List">
+    <p>Please Enter Your Task Below:</p>
+    <span class="error"></span>
+    <form>
+        <input type="text" id="task" name="task">
+        <input type="submit" tabindex="-1" style="position:absolute; top: -1000px">
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
